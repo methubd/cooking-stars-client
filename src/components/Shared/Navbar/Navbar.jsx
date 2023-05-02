@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
-    const user = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     return (
         <div className='w-3/4 mx-auto'>
@@ -16,8 +16,7 @@ const Navbar = () => {
             <div className='md:px-24'>
                 <Link to='/' className='md:ps-5'>Home</Link>
                 <Link to='/blog' className='md:ps-5'>Blog</Link>
-                <Link to='/register' className='md:ps-5'>Register</Link>
-                
+                <Link to='/register' className='md:ps-5'>Register</Link>        
             </div>
 
             {
