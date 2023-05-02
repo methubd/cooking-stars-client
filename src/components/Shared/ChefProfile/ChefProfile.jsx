@@ -24,7 +24,7 @@ const ChefProfile = ({chef}) => {
                         <p className='px-2 rounded-sm mx-2 bg-lime-300'>{chef?.recipes.length} Recipes</p>
                     </div>
                     <div className="card-actions">
-                        <Link className='bg-gray-600 text-white px-3 py-.5 my-5 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>Details</Link>
+                        <Link className='bg-gray-600 text-white px-3 py-.5 my-5 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>View Recipes</Link>
                     </div>
                     
                 </div>

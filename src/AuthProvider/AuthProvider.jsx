@@ -1,11 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { createContext } from 'react';
+import { getAuth } from "firebase/auth";
+import app from '../Firebase/firebase.config';
 
-const AuthProvider = () => {
+const auth = getAuth(app);
+export const AuthContext = createContext(null);
+
+const AuthProvider = ({children}) => {
+    const user = null;
     return (
-        <div>
-            <h2>Auth Provider</h2>
-        </div>
+        <AuthContext.Provider value={user}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
