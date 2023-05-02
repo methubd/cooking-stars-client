@@ -2,9 +2,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom';
 
 const ChefProfile = ({chef}) => {        
-    console.log(chef.chef_id);
+    const handleDetailsClick = () => {
+
+    }
     return (
         <div className=''>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -18,10 +21,10 @@ const ChefProfile = ({chef}) => {
                         <HandThumbUpIcon width={20}></HandThumbUpIcon>
                         <p className='px-2 bg-slate-300 rounded-sm mx-2'> {chef?.likes}</p>
                         
-                        <p className='px-2 bg-slate-300 rounded-sm mx-2 bg-lime-400'>{chef?.recipes.length} Recipes</p>
+                        <p className='px-2 bg-slate-300 rounded-sm mx-2 bg-lime-300'>{chef?.recipes.length} Recipes</p>
                     </div>
                     <div className="card-actions">
-                        <button className="bg-gray-600 text-white px-5 py-2 font-semibold hover:bg-red-500">More Details</button>
+                        <Link className='bg-gray-600 text-white px-5 py-2 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>Details</Link>
                     </div>
                     
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../components/Shared/Home/Home";
@@ -17,11 +18,12 @@ const router = createBrowserRouter ([
             }, 
             {
                 path: '/chef-profile',
-                element: <ChefProfile></ChefProfile>,
+                element: <ChefProfile></ChefProfile>
             }, 
             {
                 path: '/chef-profile/:id',
-                element: <ChefDetails></ChefDetails>
+                element: <ChefDetails></ChefDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
             }
         ]
     }
