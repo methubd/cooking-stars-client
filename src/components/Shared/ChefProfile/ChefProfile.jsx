@@ -16,15 +16,15 @@ const ChefProfile = ({chef}) => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title"> {chef?.name} </h2>
-                    <p>{chef?.description}</p>
+                    {/* <p>{chef?.description}</p> */}
                     <div className='flex'>
                         <HandThumbUpIcon width={20}></HandThumbUpIcon>
                         <p className='px-2 bg-slate-300 rounded-sm mx-2'> {chef?.likes}</p>
                         
-                        <p className='px-2 bg-slate-300 rounded-sm mx-2 bg-lime-300'>{chef?.recipes.length} Recipes</p>
+                        <p className='px-2 rounded-sm mx-2 bg-lime-300'>{chef?.recipes.length} Recipes</p>
                     </div>
                     <div className="card-actions">
-                        <Link className='bg-gray-600 text-white px-5 py-2 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>Details</Link>
+                        <Link className='bg-gray-600 text-white px-3 py-.5 my-5 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>Details</Link>
                     </div>
                     
                 </div>
