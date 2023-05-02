@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../components/Shared/Home/Home";
 import ChefProfile from "../components/Shared/ChefProfile/ChefProfile";
+import ChefDetails from "../components/Private/ChefDetails/ChefDetails";
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter ([
@@ -16,7 +17,11 @@ const router = createBrowserRouter ([
             }, 
             {
                 path: '/chef-profile',
-                element: <ChefProfile></ChefProfile>
+                element: <ChefProfile></ChefProfile>,
+            }, 
+            {
+                path: '/chef-profile/:id',
+                element: <ChefDetails></ChefDetails>
             }
         ]
     }
