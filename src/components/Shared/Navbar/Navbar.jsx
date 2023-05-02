@@ -1,13 +1,29 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut, setUser} = useContext(AuthContext);
+
+    const navigation = useNavigate();
+
+    const handleLogout = () => {
+        logOut()
+        .then(result => {
+            setUser(null)
+            toast.success('Thank you')
+            navigation('login')
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
     return (
         <div className='w-3/4 mx-auto'>
+            <Toaster/>
             <div className="navbar bg-base-100">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">Cooking Stars</a>
@@ -16,7 +32,11 @@ const Navbar = () => {
             <div className='md:px-24'>
                 <Link to='/' className='md:ps-5'>Home</Link>
                 <Link to='/blog' className='md:ps-5'>Blog</Link>
-                <Link to='/register' className='md:ps-5'>Register</Link>        
+                { user ?
+                    ""
+                    :
+                    <Link to='/register' className='md:ps-5'>Register</Link>
+                }
             </div>
 
             {
@@ -35,7 +55,7 @@ const Navbar = () => {
                     </a>
                     </li>
                     <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
+                    <li><button onClick={handleLogout}><a>Logout</a></button></li>
                 </ul>
                 </div>
             </div>

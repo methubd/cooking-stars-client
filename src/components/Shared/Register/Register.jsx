@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 
 
 const Register = () => {
     const {user, createNewUser} = useContext(AuthContext);
+    const navitation = useNavigate();
     
     const handleCreateUser = e => {
         e.preventDefault();
@@ -38,7 +39,8 @@ const Register = () => {
             const registeredUser = result.user;
             console.log(registeredUser);
             form.reset();
-            toast.success('User Account Successfully Created')
+            toast.success('User Account Created')
+            navitation('/login')
         })
         .catch(error => {
             console.log(error);
