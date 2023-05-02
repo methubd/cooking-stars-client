@@ -9,7 +9,6 @@ const Banner = () => {
                 <p className='text-xl py-5 '>Learn from us, how you can make delicious food using your own kitchen.</p>
                 <button className='bg-red-600 text-white px-5 py-2 font-semibold hover:bg-red-500'>EXPLORE RECIPES</button>
             </div>
-
         </div>
     );
 };
