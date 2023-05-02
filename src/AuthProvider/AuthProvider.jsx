@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { createContext, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import { useNavigate } from 'react-router-dom';
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 
+
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createNewUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -28,8 +30,21 @@ const AuthProvider = ({children}) => {
         setUser,
         createNewUser,
         logIn,
-        logOut
+        logOut, 
+        loading
     }
+
+    // Observer
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            console.log(currentUser);
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return () => {
+            unsubscribe();
+        }
+    }, [])
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

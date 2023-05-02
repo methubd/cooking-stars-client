@@ -6,6 +6,7 @@ import ChefProfile from "../components/Shared/ChefProfile/ChefProfile";
 import ChefDetails from "../components/Private/ChefDetails/ChefDetails";
 import Register from "../components/Shared/Register/Register";
 import Login from "../components/Shared/Login/Login";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter ([
@@ -24,7 +25,7 @@ const router = createBrowserRouter ([
             }, 
             {
                 path: '/chef-profile/:id',
-                element: <ChefDetails></ChefDetails>,
+                element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
             },
             {

@@ -26,7 +26,7 @@ const Navbar = () => {
             <Toaster/>
             <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Cooking Stars</a>
+                <Link to='/'><a className="btn btn-ghost normal-case text-xl">Cooking Stars</a></Link>
             </div>
 
             <div className='md:px-24'>
