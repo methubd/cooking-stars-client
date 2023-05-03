@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 
@@ -26,10 +26,12 @@ const Navbar = () => {
             <Toaster/>
             <div className="navbar bg-base-100">
             <div className="flex-1">
+            
                 <Link to='/'><a className="btn btn-ghost normal-case text-xl">Cooking Stars</a></Link>
             </div>
 
             <div className='md:px-24'>
+                <NavLink/>
                 <Link to='/' className='md:ps-5'>Home</Link>
                 <Link to='/blog' className='md:ps-5'>Blog</Link>
                 { user ?

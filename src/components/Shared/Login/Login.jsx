@@ -16,7 +16,7 @@ const Login = () => {
         console.log(email, password);
 
         if(email === ""){
-            toast.error('Please enter your valid email address.')
+            toast.error('Please enter your login credentials.')
             return;
         }
         logIn(email, password)

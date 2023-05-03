@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDtZPL9iZ1Fhz8kfzJoHL4bqTsRURXA0PA",
-  authDomain: "cooking-stars-a579a.firebaseapp.com",
-  projectId: "cooking-stars-a579a",
-  storageBucket: "cooking-stars-a579a.appspot.com",
-  messagingSenderId: "482762911611",
-  appId: "1:482762911611:web:b8a888ef1aab7756af57de"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
