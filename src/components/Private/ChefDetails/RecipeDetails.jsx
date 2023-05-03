@@ -4,7 +4,7 @@ import React from 'react';
 
 const RecipeDetails = ({recipe}) => {
     const {name} = recipe;
-    console.log(recipe.ingredients);
+    
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">

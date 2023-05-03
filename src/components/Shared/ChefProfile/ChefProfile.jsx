@@ -3,16 +3,22 @@
 import React, { useState } from 'react';
 import { HandThumbUpIcon, BookmarkIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { addToDb } from '../../../Utilities/fakedb';
 
 const ChefProfile = ({chef}) => {  
 
     const [bookmark, setBookmark] = useState({});
-    console.log(bookmark);
     
-    const handleBookmark = (id) => {
-        const cart = bookmark;
-        const newCart = bookmark + id;
-        setBookmark(newCart)        
+    const handleBookmark = (chef) => {
+        if(bookmark.chef_id === chef.chef_id){
+            toast.error('Already Bookmarked')
+        }
+        else if(bookmark.chef_id !== chef.chef_id){
+            setBookmark(chef)
+            toast.success('Successfully Bookmarked')
+            addToDb(chef.chef_id)
+        }
     }
     return (
         <div className=''>

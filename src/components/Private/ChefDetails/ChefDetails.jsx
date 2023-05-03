@@ -5,7 +5,6 @@ import RecipeDetails from './RecipeDetails';
 
 const ChefDetails = () => {
     const chef = useLoaderData();
-    console.log(chef.recipes);
     
     return (
         <div className='w-3/4 mx-auto'>
