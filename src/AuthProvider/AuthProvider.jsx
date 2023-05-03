@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import { useNavigate } from 'react-router-dom';
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
 
 const AuthProvider = ({children}) => {
@@ -30,6 +31,10 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider);
     }
 
+    const loginWithGitHub = () => {
+        return signInWithPopup(auth, gitHubProvider);
+    }
+
     const authInfo = {
         user,
         setUser,
@@ -37,7 +42,8 @@ const AuthProvider = ({children}) => {
         logIn,
         logOut, 
         loading,
-        loginWithGoogle
+        loginWithGoogle, 
+        loginWithGitHub
     }
 
     // Observer

@@ -5,7 +5,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 
 const Login = () => {    
-    const {logIn, setUser, loginWithGoogle} = useContext(AuthContext);
+    const {logIn, setUser, loginWithGoogle, loginWithGitHub} = useContext(AuthContext);
     const navitation = useNavigate();
 
     const handleLogin = e => {
@@ -46,6 +46,16 @@ const Login = () => {
             console.log(error);
         })
     }
+
+    const handleGitHubLogin = () => {
+        loginWithGitHub()
+        .then(result => {
+            const loggedUser = result.user;
+            setUser(loggedUser)
+            toast.success('Welcome to our system.')
+            navitation('/')
+        })
+    }
     return (
         <div className='md:w-3/4 mx-auto'>
             <h2 className='text-center text-2xl font-bold py-5'>Please Login</h2>
@@ -62,7 +72,7 @@ const Login = () => {
                     <img className='w-10' src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
                     Login with Google
                 </button>
-                <button className='flex items-center text-lg font-semibold bg-slate-200 px-5 rounded mx-auto my-5'>
+                <button onClick={handleGitHubLogin} className='flex items-center text-lg font-semibold bg-slate-200 px-5 rounded mx-auto my-5'>
                     <img className='w-10 me-4' src="https://cdn-icons-png.flaticon.com/512/25/25657.png" alt="" />
                     Login with GitHub
                 </button>

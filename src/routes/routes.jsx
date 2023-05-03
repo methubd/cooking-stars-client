@@ -19,7 +19,7 @@ const router = createBrowserRouter ([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/chefs')
+                loader: () => fetch('https://assignment-ten-server-methubd.vercel.app/chefs')
             }, 
             {
                 path: '/chef-profile',
@@ -28,7 +28,7 @@ const router = createBrowserRouter ([
             {
                 path: '/chef-profile/:id',
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-ten-server-methubd.vercel.app/chefs/${params.id}`)
             },
             {
                 path: '/register',
