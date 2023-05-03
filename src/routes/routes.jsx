@@ -8,6 +8,7 @@ import Register from "../components/Shared/Register/Register";
 import Login from "../components/Shared/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/Shared/Error/Error";
+import Blog from "../components/Shared/Blog/Blog";
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter ([
@@ -36,6 +37,10 @@ const router = createBrowserRouter ([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }, 
