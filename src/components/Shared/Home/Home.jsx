@@ -4,6 +4,8 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import ChefProfile from '../ChefProfile/ChefProfile';
 import { useLoaderData } from 'react-router-dom';
+import SearchRecipes from './SearchRecipes';
+import CookingClasses from './CookingClasses';
 
 const Home = () => {
     const data = useLoaderData();
@@ -19,6 +21,8 @@ const Home = () => {
                         ></ChefProfile>)
                 }
             </div>
+            <CookingClasses></CookingClasses>
+            <SearchRecipes></SearchRecipes>
         </div>
     );
 };

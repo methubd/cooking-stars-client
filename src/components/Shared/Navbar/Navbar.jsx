@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" />
+                    <img src={user?.photoURL || "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Download-Image.png"} />
                     </div>
                 </label>
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
