@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
+import ActiveLink from '../../../Utilities/ActiveLink';
 
 const Navbar = () => {
     const {user, logOut, setUser} = useContext(AuthContext);
@@ -26,18 +27,17 @@ const Navbar = () => {
             <Toaster/>
             <div className="navbar bg-base-100">
             <div className="flex-1">
-            
-                <Link to='/'><a className="btn btn-ghost normal-case text-xl">Cooking Stars</a></Link>
+            <Link to='/'><a className="btn btn-ghost normal-case text-xl">Cooking Stars</a></Link>
             </div>
 
             <div className='md:px-24'>
                 <NavLink/>
-                <Link to='/' className='md:ps-5'>Home</Link>
-                <Link to='/blog' className='md:ps-5'>Blog</Link>
+                <button className='px-5'><ActiveLink to='/' className='md:ps-5'>Home</ActiveLink></button>
+                <button className='px-5'><ActiveLink to='/blog' className='md:ps-5'>Blog</ActiveLink></button>
                 { user ?
                     ""
                     :
-                    <Link to='/register' className='md:ps-5'>Register</Link>
+                    <button className='px-5'><ActiveLink to='/register' className='md:ms-5'>Register</ActiveLink></button>
                 }
             </div>
 
@@ -56,7 +56,6 @@ const Navbar = () => {
                         Profile
                     </a>
                     </li>
-                    <li><a>Settings</a></li>
                     <li><button onClick={handleLogout}><a>Logout</a></button></li>
                 </ul>
                 </div>

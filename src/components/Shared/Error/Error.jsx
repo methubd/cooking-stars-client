@@ -11,7 +11,8 @@ const Error = () => {
                 <h1 className='text-5xl'>404</h1>
                 <p className='text-slate-500'>This page could not be found. May try a search?</p>
                 <input className=' text-center bg-slate-100 border-none py-2 px-2 rounded-lg my-2 outline-none' type="text" placeholder="Search Now" />
-                <Link to='/'><MagnifyingGlassIcon className='w-10 mx-auto bg-lime-600 text-white px-2 py-2'/></Link>               
+                <Link><MagnifyingGlassIcon className='w-10 mx-auto bg-lime-600 text-white px-2 py-2 mb-5'/></Link>    
+                <Link className='bg-lime-300 py-2 px-5 mt-5' to='/'>Home Page</Link>           
                 
             </div>
         </div>
