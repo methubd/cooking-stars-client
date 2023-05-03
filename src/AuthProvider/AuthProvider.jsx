@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import { useNavigate } from 'react-router-dom';
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
 
 
 const AuthProvider = ({children}) => {
@@ -25,13 +26,18 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    const loginWithGoogle = () => {
+        return signInWithPopup(auth, googleProvider);
+    }
+
     const authInfo = {
         user,
         setUser,
         createNewUser,
         logIn,
         logOut, 
-        loading
+        loading,
+        loginWithGoogle
     }
 
     // Observer

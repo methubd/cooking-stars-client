@@ -5,7 +5,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 
 const Login = () => {    
-    const {logIn, setUser} = useContext(AuthContext);
+    const {logIn, setUser, loginWithGoogle} = useContext(AuthContext);
     const navitation = useNavigate();
 
     const handleLogin = e => {
@@ -31,7 +31,20 @@ const Login = () => {
         .catch(error => {
             console.log(error);
         })
+    }
 
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            toast.success('Welcome to our system.')
+            navitation('/')
+            setUser(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     return (
         <div className='md:w-3/4 mx-auto'>
@@ -44,6 +57,16 @@ const Login = () => {
             </form>
             <p className='text-center'> <small>New user? <span className='text-green-500'><Link to='/register'>Please Register</Link></span></small> </p>
             <Toaster/>
+            <div>
+                <button onClick={handleGoogleLogin} className='flex items-center text-lg font-semibold bg-slate-200 px-5 rounded mx-auto my-5'>
+                    <img className='w-10' src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
+                    Login with Google
+                </button>
+                <button className='flex items-center text-lg font-semibold bg-slate-200 px-5 rounded mx-auto my-5'>
+                    <img className='w-10 me-4' src="https://cdn-icons-png.flaticon.com/512/25/25657.png" alt="" />
+                    Login with GitHub
+                </button>
+            </div>
         </div>
     );
 };

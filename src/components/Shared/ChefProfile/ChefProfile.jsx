@@ -40,7 +40,9 @@ const ChefProfile = ({chef}) => {
                     <div className="card-actions">
                         <Link className='bg-gray-600 text-white px-3 py-.5 my-5 font-semibold hover:bg-red-500' to={`/chef-profile/${chef.chef_id}`}>View Recipes</Link>
                     </div>
+                       
                     <button onClick={() => handleBookmark(chef)}><BookmarkIcon className='h-6'></BookmarkIcon></button>
+                    
                 </div>
             </div>
         </div>
